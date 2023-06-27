@@ -2,10 +2,12 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import express from 'express';
+import dotenv from 'dotenv';
 import postRoutes from './routes/posts.js';
 
 
 const app = express();
+dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
@@ -15,8 +17,8 @@ app.use(cors());
 app.use('/posts', postRoutes);
 
 
-const CONNECTION_URI = 'mongodb://127.0.0.1:27017';
-const PORT = 5000;
+const CONNECTION_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT;
 
 mongoose.connect(CONNECTION_URI , {
     useNewUrlParser: true,
