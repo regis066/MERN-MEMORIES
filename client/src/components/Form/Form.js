@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FileBase from 'react-file-base64';
 
 import { TextField, Button, Typography, Paper } from '@mui/material';
