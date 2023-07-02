@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export default makeStyles({
+export default makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%',
@@ -49,4 +49,9 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
-});
+  hideText: {
+    [theme.breakpoints.between('sm', 'md')]: {
+        display: 'none',
+    },
+  },
+}));
